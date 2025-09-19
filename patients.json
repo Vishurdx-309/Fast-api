@@ -1,0 +1,90 @@
+{
+  "P001": {
+    "name": "Ravi Kumar",
+    "age": 45,
+    "gender": "Male",
+    "phone": "9876543210",
+    "address": "45 MG Road, Bengaluru",
+    "diseases": ["Hypertension", "Diabetes"],
+    "height_cm": 172,
+    "weight_kg": 78,
+    "bmi": 26.4
+  },
+  "P002": {
+    "name": "Ananya Sharma",
+    "age": 29,
+    "gender": "Female",
+    "phone": "9123456780",
+    "address": "23 Sector 15, Noida",
+    "diseases": ["Asthma"],
+    "height_cm": 160,
+    "weight_kg": 55,
+    "bmi": 21.5
+  },
+  "P003": {
+    "name": "Mohammed Ali",
+    "age": 52,
+    "gender": "Male",
+    "phone": "9988776655",
+    "address": "78 Charminar Road, Hyderabad",
+    "diseases": ["Arthritis", "High Cholesterol"],
+    "height_cm": 168,
+    "weight_kg": 82,
+    "bmi": 29.1
+  },
+  "P004": {
+    "name": "Priya Verma",
+    "age": 36,
+    "gender": "Female",
+    "phone": "9876501234",
+    "address": "12 Park Street, Kolkata",
+    "diseases": [],
+    "height_cm": 158,
+    "weight_kg": 60,
+    "bmi": 24.0
+  },
+  "P005": {
+    "name": "Suresh Patel",
+    "age": 40,
+    "gender": "Male",
+    "phone": "9812233445",
+    "address": "5 Ashram Road, Ahmedabad",
+    "diseases": ["Migraines"],
+    "height_cm": 175,
+    "weight_kg": 70,
+    "bmi": 22.9
+  },
+  "P006": {
+    "name": "Neha Reddy",
+    "age": 33,
+    "gender": "Female",
+    "phone": "9001122334",
+    "address": "89 Jubilee Hills, Hyderabad",
+    "diseases": ["Thyroid"],
+    "height_cm": 162,
+    "weight_kg": 68,
+    "bmi": 25.9
+  },
+  "P007": {
+    "name": "Amit Singh",
+    "age": 27,
+    "gender": "Male",
+    "phone": "9776654321",
+    "address": "11 Connaught Place, New Delhi",
+    "diseases": [],
+    "height_cm": 180,
+    "weight_kg": 75,
+    "bmi": 23.1
+  },
+  "P008": {
+    "name": "Meera Joshi",
+    "age": 50,
+    "gender": "Female",
+    "phone": "9123459876",
+    "address": "67 FC Road, Pune",
+    "diseases": ["Hypertension"],
+    "height_cm": 155,
+    "weight_kg": 65,
+    "bmi": 27.1
+  }
+}

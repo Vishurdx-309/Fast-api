@@ -1,0 +1,3 @@
+client send the data 
+validate the data 
+if validated add it to the database
