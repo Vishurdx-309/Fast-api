@@ -1,21 +1,26 @@
-from fastapi import FastAPI, Path, HTTPException, Query
-from pydantic import Basemodel, Field, computed_field
+from fastapi import FastAPI, Path, HTTPException , Query
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, Field, computed_field
 from typing import Annotated, Literal
 import json
 
 with open("patients.json", "r") as file:
     data = json.load(file)
 
+def save_data():
+    with open('patients.json', 'w') as f:
+        json.dump(data, f, indent=4)
+
 app = FastAPI()
 
-class Patient(Basemodel):
+class Patient(BaseModel):
     id : Annotated[str, Field(..., description = 'ID OF THE PATIENT', examples = ['P001'])]
     name : Annotated[str, Field(...,description = 'NAME OF THE PATEINT', examples = ['Vishal Bokhare'])]
     age : Annotated[int, Field(...,gt = 0, lt = 150,description = 'AGE OF THE PATEINT', examples = [20])]
     gender : Annotated[Literal['male','female','others'],Field(...,description='gender of the pateint')]
     phone : Annotated[str, Field(...,description = 'Phone number insaan ka 10 letters wala hi hona')]
     address : str
-    # diseases : list
+    diseases : list
     height_cm : Annotated[float,Field(...,gt = 0,description='height in cm')]
     weight_kg : Annotated[float,Field(...,gt = 0,description='weight in kg')]
     
@@ -25,7 +30,7 @@ class Patient(Basemodel):
     @computed_field 
     @property
     def bmi(self) -> float:
-        bmi = round(self.weight_kg/self.height_cm)
+        bmi = round(self.weight_kg / ((self.height_cm / 100) ** 2), 2)
         return bmi
      
     
@@ -75,3 +80,27 @@ def view_id(patient_id: str = Path(...,description = 'ID of the patient to view 
         
         
 # post ka endpoint create karna hai ab
+@app.post('/create')
+def create_patient(patient: Patient):
+    global data   # tell Python to use the global 'data' dict
+
+    # check if it already exists or not 
+    if patient.id in data:
+        raise HTTPException(status_code=400, detail='pehle se hai re baba')
+
+    # convert Pydantic object to dict
+    data[patient.id] = patient.model_dump(exclude=['id'])
+
+    # save into the JSON file 
+    save_data()
+
+    return JSONResponse(status_code=201, content={"message": "created successfully"})
+
+# edit end point with patient id and what request body like what to change ie.e updated wieight 
+# put HTTP Method we will be using
+# new pydantic model needed
+
+
+
+    
+    
